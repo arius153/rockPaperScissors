@@ -4,62 +4,18 @@
         <title>RockPaperScissors!</title>
     </head>
     <body>
-        <script>
-
-        let signs = ["rock", "paper", "scissors"];
-        let playerScore = 0;
-        let computerScore = 0;
-        function computerPlay()
-        {
-            return signs[Math.floor(Math.random() * 3)];
-        }
-        function playRound(playerSelection, computerSelection)
-        {
-            let p = playerSelection;
-            let c = computerSelection;
-            let r = "rock";
-            let pa = "paper";
-            let s = "scissors";
-            if ((p == r && c == s) || (p == pa && c == r) || (p == s && c == pa))
-            {
-                playerScore++;
-                return "You win!" + p + " beats " + c +"!";
-                
-            }
-            else if ((p == r && c == r) || (p == pa && c == pa) || (p == s && c ==s ))
-            {
-                return "It's tied!";
-                
-            }
-            else {
-                computerScore++;
-                return "You lose!" + c + " beats " + p + "!";
-                
-            }
-        }
-        function game(){
-            
-            while (playerScore < 5 && computerScore < 5)
-            {
-                console.log("\n Your Score: " + playerScore + " Computer score: " + computerScore +"\n");
-                let sign = prompt("What do you chose [rock, paper, scissors]");
-                if (sign != "rock" && sign != "paper" &&  sign != "scissors")
-                {
-                    console.log("It is not a sign!");
-                    continue;
-                }
-                console.log(playRound(sign, computerPlay()));
-            }
-            if (playerScore > computerScore)
-            {
-                console.log("You win the game!");
-            }
-            else 
-            {
-                console.log("Computer wins the game!");
-            }
-        }
-        game();
-        </script>
+        <div id="game-screen">
+            <div id="player-options">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+            <div id="game-score">
+                <p id="player-score">Your score: <span>0</span></p>
+                <p id="computer-score">Computer score: <span>0</span></p>
+            </div>
+            <div id="game-messages"></div>
+        </div>
+        <script src="myscript.js"></script>
     </body>
 </html>
