@@ -6,24 +6,32 @@ const pScore = document.querySelector('#player-score>span');
 const cScore = document.querySelector('#computer-score>span');
 const gameMessages = document.querySelector('#game-messages');
 const playerOptions = document.querySelector("#player-options");
-
+const computerOptions = document.querySelectorAll('#computer-options div')
+const gameScore = document.querySelector('#game-score');
+const textConstants = document.querySelectorAll('#game-score>p');
 
 
 const buttons = document.querySelectorAll('#player-options button');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        rip = playRound(button.id, computerSelection());
+        let computerSign = computerSelection();
+        let computerSignToChange = 'c' + computerSign.charAt(0).toUpperCase() + computerSign.slice(1);
+        playRound(button.id, computerSign);
+        computerOptions.forEach(div => div.style.backgroundColor = "#f5f5f5");
+        document.getElementById(computerSignToChange).style.backgroundColor = "#E61C6D";
         if (playerScore >= MAX_SCORE || computerScore >= MAX_SCORE) {
             if (playerScore > computerScore)
             {
                 gameMessages.textContent = "You win the game!";
-                buttons.forEach(button => playerOptions.removeChild(button));
-                playerOptions.appendChild(restartButton);
+                
+                textConstants.forEach(text => gameScore.removeChild(text));
+                gameScore.appendChild(restartButton);
             }
             else {
                 gameMessages.textContent = "You Lose the game!";
-                buttons.forEach(button => playerOptions.removeChild(button));
-                playerOptions.appendChild(restartButton);
+                textConstants.forEach(text => gameScore.removeChild(text));
+                
+                gameScore.appendChild(restartButton);
             }
         }
     })
@@ -59,10 +67,8 @@ function computerSelection() {
 const restartButton = document.createElement('button');
 restartButton.textContent = 'Play Again!';
 restartButton.addEventListener('click', () => {
-    playerOptions.removeChild(restartButton);
-    buttons.forEach(button => {
-        playerOptions.appendChild(button);
-    })
+    gameScore.removeChild(restartButton);
+    textConstants.forEach(text => gameScore.insertBefore(text, gameMessages));
     playerScore = 0;
     computerScore = 0;
     pScore.textContent = playerScore;

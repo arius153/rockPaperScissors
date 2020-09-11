@@ -1,0 +1,67 @@
+body {
+    background-image: url("background2.jpg");
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+}
+
+#game-screen {
+    background-color: white;
+    height: 130px;
+    width: 400px;
+    text-align: center;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 200px;
+    border-style: solid;
+}
+    
+#player-options {
+    float:left;
+    width: 24%;
+}
+#player-options button{
+    padding: 8.5px;
+    width: 100%;
+    border-style: none;
+    border-right: solid;
+    border-top: solid;
+    border-color: black;
+    
+}
+#game-score {
+    display: inline-block;
+    width: 52%;
+}
+#computer-options {
+    float: right;
+    width: 24%;
+}
+#computer-options div {
+    border-style: none;
+    border-left: solid;
+    border-top: solid;
+    height: auto;
+    padding: 8.5px;
+    font-size: 14.2px;
+    background-color: #f5f5f5;
+}
+#computer-above-selection {
+    margin: 0;
+    border-left: solid;
+
+}
+#player-above-selection {
+    margin: 0;
+    border-right: solid;
+}
+button:hover {
+    background-color: #19e392;
+}
+#game-messages {
+    margin: 10px;
+}
+button {
+    width: 100%;
+    border: none;
+}

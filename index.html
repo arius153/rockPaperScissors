@@ -2,10 +2,12 @@
 <html>
     <head>
         <title>RockPaperScissors!</title>
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
         <div id="game-screen">
             <div id="player-options">
+                <p id="player-above-selection">PLAYER</p>
                 <button id="rock">Rock</button>
                 <button id="paper">Paper</button>
                 <button id="scissors">Scissors</button>
@@ -13,8 +15,15 @@
             <div id="game-score">
                 <p id="player-score">Your score: <span>0</span></p>
                 <p id="computer-score">Computer score: <span>0</span></p>
+                <div id="game-messages"></div>
             </div>
-            <div id="game-messages"></div>
+            <div id="computer-options">
+                <p id="computer-above-selection">COMPUTER</p>
+                <div id="cRock">Rock</div>
+                <div id="cPaper">Papper</div>
+                <div id="cScissors">Scissors</div>
+            </div>
+
         </div>
         <script src="myscript.js"></script>
     </body>
